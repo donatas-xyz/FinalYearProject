@@ -1,0 +1,74 @@
+﻿/* Reset Style */
+
+body 
+{
+	margin:0; 
+	padding:0; 
+}
+
+/* ORDERS */
+
+.orderTable 
+{
+    border-spacing: 2px;
+    text-align: left;
+    border-color: gray;
+    width: auto;
+    display: table;
+}
+
+.orderTable th 
+{
+    font-size: 1.1em;
+    border-bottom: 2px solid gray;
+    padding: 5px 4px
+}
+
+.orderTable tr 
+{
+    font-size: 1.0em;
+    border: none;
+    padding: 5px 4px
+}
+
+.orderTable td 
+{
+    font-size: 1.0em;
+    border: none;
+    padding: 5px 4px
+}
+
+.orderTable tfoot 
+{
+    font-size: 1.1em;
+    border-top: 2px solid gray;
+    padding: 5px 4px;
+    vertical-align: bottom;
+}
+
+.orderTable input 
+{
+    max-width: 50px;
+}
+
+.orderTable caption 
+{
+    padding: 10px;
+    font-size: 1.4em;
+}
+
+.longerInputField input 
+{
+    max-width: 100%;
+}
+
+/* Remove Elements */ 
+.navbar,
+.navbar-inverse,
+.navbar-fixed-top ,
+.btn, 
+footer,
+.btn-default
+{
+	display: none;
+}

@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SNW</name>
+    </assembly>
+    <members>
+        <member name="T:SNW.Controllers.AccountController">
+            <summary>
+            Takes care of system users - authenticates and logs them in.
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.AccountController.AdminArea">
+            <summary>
+            Co-ordinator's page
+            </summary>
+            <returns>List of pages to administer</returns>
+        </member>
+        <member name="M:SNW.Controllers.AccountController.Login">
+            <summary>
+            Login form. 
+            Code taken from: http://www.codeproject.com/Articles/482546/Creating-a-custom-user-login-form-with-NET-Csharp
+            </summary>
+            <returns>Login page</returns>
+        </member>
+        <member name="M:SNW.Controllers.AccountController.Login(SNW.Models.Account.AccountLogin)">
+            <summary>
+            Verifies username and password entered
+            </summary>
+            <param name="account">SNW.Models.Account.AccountLogin object</param>
+            <returns>Home page on success, error on failure</returns>
+        </member>
+        <member name="M:SNW.Controllers.AccountController.Logout">
+            <summary>
+            Logs the user out of the system
+            </summary>
+            <returns>Home page</returns>
+        </member>
+        <member name="T:SNW.Controllers.AccountController.SHA1">
+            <summary>
+            Simple SHA1 (160-bit hash value) encoder
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.AccountController.SHA1.Encode(System.String)">
+            <summary>
+            Encode user's password
+            </summary>
+            <param name="value">User's password in plain text</param>
+            <returns>Returns encoded password</returns>
+        </member>
+        <member name="T:SNW.Controllers.CustomerController">
+            <summary>
+            Takes care of the member logged in the system
+            </summary>
+        </member>
+        <member name="F:SNW.Controllers.CustomerController.db">
+            Gets access to data entities via DBModelContainer class, which derives from DbContext
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Index">
+            <summary>
+            GET: /Customer/
+            </summary>
+            <returns>List of Members</returns>
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Details(System.Nullable{System.Int32})">
+            <summary>
+             GET: /Customer/Details/5
+            </summary>
+            <param name="id">Member ID</param>
+            <returns>Member's Details</returns>
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Create">
+            <summary>
+            GET: /Customer/Create
+            </summary>
+            <returns>Form to create new Member</returns>
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Create(SNW.Models.Customer)">
+            POST: /Customer/Create
+            To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+            more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Edit(System.Nullable{System.Int32})">
+            <summary>
+             GET: /Customer/Edit/5
+            </summary>
+            <param name="id">Member ID</param>
+            <returns>Form to edit the Member</returns>
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Edit(SNW.Models.Customer)">
+            POST: /Customer/Edit/5
+            To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+            more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Delete(System.Nullable{System.Int32})">
+            GET: /Customer/Delete/5
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.DeleteConfirmed(System.Int32)">
+            POST: /Customer/Delete/5
+        </member>
+        <member name="M:SNW.Controllers.CustomerController.Dispose(System.Boolean)">
+            <summary>
+            Garbage collect unmanaged objects
+            </summary>
+        </member>
+        <member name="T:SNW.Controllers.CustomerOrderController">
+            <summary>
+            Takes care of Members' Orders
+            </summary>
+        </member>
+        <member name="F:SNW.Controllers.CustomerOrderController.db">
+            Gets access to data entities via DBModelContainer class, which derives from DbContext
+        </member>
+        <member name="M:SNW.Controllers.CustomerOrderController.userID">
+            Get user's ID
+        </member>
+        <member name="M:SNW.Controllers.CustomerOrderController.orderID(System.Int32)">
+            Get user order's ID
+        </member>
+        <member name="M:SNW.Controllers.CustomerOrderController.Index">
+            GET: /CustomerOrder/
+            Get all members' orders
+        </member>
+        <member name="M:SNW.Controllers.CustomerOrderController.CustomerOrder(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Returns Order's Details
+            </summary>
+            <param name="id">Order's ID</param>
+            <param name="state">Order's State</param>
+            <param name="user">Order Owner's ID</param>
+            <returns>Order details</returns>
+        </member>
+        <member name="M:SNW.Controllers.CustomerOrderController.GetOrderInfo(System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            Kind of interface to request order details
+        </member>
+        <member name="M:SNW.Controllers.CustomerOrderController.AmendOrderLine(SNW.Models.CustomerOrderLine,System.String,System.String,System.Int32,System.Int32)">
+            Amend order line depending on button pressed
+        </member>
+        <member name="M:SNW.Controllers.CustomerOrderController.Dispose(System.Boolean)">
+            <summary>
+            Garbage collect unmanaged objects
+            </summary>
+        </member>
+        <member name="T:SNW.Controllers.FrequentlyAccessedQueries">
+            <summary>
+            Frequently Used Queries
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.FrequentlyAccessedQueries.UserInfo">
+            <summary>
+            USER QUERIES
+            </summary>
+            <returns>User information</returns>
+        </member>
+        <member name="M:SNW.Controllers.FrequentlyAccessedQueries.ProductInfo">
+            <summary>
+            PRODUCT QUERIES
+            </summary>
+            <returns>Product information</returns>
+        </member>
+        <member name="M:SNW.Controllers.FrequentlyAccessedQueries.OrderInfo(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            MEMBER QUERIES
+            </summary>
+            <param name="id">Order ID</param>
+            <param name="state">Order State</param>
+            <returns>Order Information</returns>
+        </member>
+        <member name="M:SNW.Controllers.FrequentlyAccessedQueries.OrderInfoPending(System.Nullable{System.Int32})">
+            <summary>
+            SUPPLIER QUERIES
+            </summary>
+            <param name="state">Order State</param>
+            <returns>Order Details</returns>
+        </member>
+        <member name="T:SNW.Controllers.ErrorController">
+            <summary>
+            Manages errors
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.ErrorController.NoActiveOrders(System.String)">
+            Return No Active Orders page with some options
+        </member>
+        <member name="M:SNW.Controllers.ErrorController.NoAccess(System.String)">
+            Errors of 'No Access to resource' type
+        </member>
+        <member name="M:SNW.Controllers.ErrorController.CannotDelete(System.String,System.String,System.String)">
+            Record cannot be deleted due to relations with other tables (PK -> FK)
+        </member>
+        <member name="T:SNW.Controllers.HomeController">
+            <summary>
+            Controls Home page
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.HomeController.Index">
+            <summary>
+            Display main page
+            </summary>
+            <returns>Home Page</returns>
+        </member>
+        <member name="M:SNW.Controllers.HomeController.Contact">
+            <summary>
+            Display Contacts page
+            </summary>
+            <returns>Contacts page</returns>
+        </member>
+        <member name="T:SNW.Controllers.MailController">
+            <summary>
+            Controls system's emails
+            </summary>
+        </member>
+        <member name="T:SNW.Controllers.MailController.EmailSystem">
+            Solution taken from http://msdn.microsoft.com/en-us/library/system.net.mail.smtpclient(v=vs.110).aspx
+        </member>
+        <member name="T:SNW.Controllers.ProductController">
+            <summary>
+            Controls everything about the products
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.ProductController.userID">
+            Get user ID
+        </member>
+        <member name="M:SNW.Controllers.ProductController.orderID(System.Int32)">
+            get orderID
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Index(System.String)">
+            GET: /Product/
+            Display list of products for administration
+        </member>
+        <member name="M:SNW.Controllers.ProductController.ProductList(System.String)">
+            <summary>
+            Shows list of products that can be ordered
+            </summary>
+            <param name="search">Search query</param>
+            <returns>List of Products</returns>
+        </member>
+        <member name="M:SNW.Controllers.ProductController.GetProductInfo(System.String)">
+            Kind of interface to request product details
+        </member>
+        <member name="M:SNW.Controllers.ProductController.AddToOrder(System.Int32)">
+            <summary>
+            Adds products to pending order
+            </summary>
+            <param name="id">Product id</param>
+            <returns>List of Products</returns>
+        </member>
+        <member name="M:SNW.Controllers.ProductController.ReportPrice(System.Int32)">
+            <summary>
+            Send report of wrong price to co-ordinator
+            </summary>
+            <param name="id">Product ID</param>
+            <returns>Confirmation View</returns>
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Details(System.Nullable{System.Int32})">
+            GET: /Product/Details/5
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Create">
+            GET: /Product/Create
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Create(SNW.Models.Product)">
+            POST: /Product/Create
+            To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+            more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Edit(System.Nullable{System.Int32})">
+            GET: /Product/Edit/5
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Edit(SNW.Models.Product)">
+            POST: /Product/Edit/5
+            To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+            more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Delete(System.Nullable{System.Int32})">
+            GET: /Product/Delete/5
+        </member>
+        <member name="M:SNW.Controllers.ProductController.DeleteConfirmed(System.Int32)">
+            POST: /Product/Delete/5
+        </member>
+        <member name="M:SNW.Controllers.ProductController.Dispose(System.Boolean)">
+            <summary>
+            Garbage collect unmanaged objects
+            </summary>
+        </member>
+        <member name="T:SNW.Controllers.SearchController">
+            <summary>
+            Allows searching for products and potentially for other things in the future
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.SearchController.Search(System.String,System.String)">
+            Interface to searches
+        </member>
+        <member name="T:SNW.Controllers.SupplierOrderController">
+            <summary>
+            Takes care of supplier order logic
+            </summary>
+        </member>
+        <member name="M:SNW.Controllers.SupplierOrderController.Index">
+            GET: /SupplierOrder list/
+        </member>
+        <member name="M:SNW.Controllers.SupplierOrderController.SupplierOrder(System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            Get information of supplier order
+            </summary>
+            <param name="id">Order ID</param>
+            <param name="state">Order State</param>
+            <param name="username">Username</param>
+            <returns></returns>
+        </member>
+        <member name="M:SNW.Controllers.SupplierOrderController.UserInfo(System.String)">
+            Kind of interface to request user's details
+        </member>
+        <member name="M:SNW.Controllers.SupplierOrderController.GetOrderInfo(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            Kind of interface to request order's details
+        </member>
+        <member name="M:SNW.Controllers.SupplierOrderController.ChangeDate(SNW.Models.SupplierOrder)">
+            <summary>
+            Changes order's required delivery date
+            </summary>
+            <param name="order">Order object</param>
+            <returns>Return the order</returns>
+        </member>
+        <member name="M:SNW.Controllers.SupplierOrderController.Dispose(System.Boolean)">
+            <summary>
+            Garbage collect unmanaged objects
+            </summary>
+        </member>
+        <member name="M:SNW.Models.Account.AccountLogin.IsValid(System.String,System.String)">
+            <summary>
+            Checks if user with given password exists in the database
+            </summary>
+            <param name="_customerUsername">Username</param>
+            <param name="_customerPassword">Password</param>
+            <returns>True if user exist and password is correct</returns>
+        </member>
+        <member name="P:SNW.Models.Account.AccountLogin.customerUsername">
+            Solution taken from http://www.codeproject.com/Articles/482546/Creating-a-custom-user-login-form-with-NET-Csharp
+        </member>
+        <member name="P:SNW.Models.Account.AccountLogin.customerPassword">
+            override customerEmail in upperclass 
+        </member>
+        <member name="T:SNW.Models.CustomerOrderInfo.MemberOrder">
+            Model for CustomerOrderController
+        </member>
+        <member name="F:SNW.Models.CustomerOrderInfo.MemberOrder._productSNWDivisor">
+            Calculate Product SNW Price (price per item)
+        </member>
+        <member name="P:SNW.Models.CustomerOrderInfo.MemberOrder.customerOrderID">
+            Allows to access property (variable) from other classes
+        </member>
+        <member name="T:SNW.Models.SupplierOrderInfo.SupplierOrderInfo">
+            Model for SupplierOrders
+        </member>
+        <member name="P:SNW.Models.SupplierOrderInfo.SupplierOrderInfo.supplierOrderID">
+            Allows to access property (variable) from other classes
+        </member>
+        <member name="P:SNW.Models.SupplierOrderInfo.SupplierOrderInfo.supplierOrderDate">
+            When Order gets Confirmed
+        </member>
+        <member name="P:SNW.Models.SupplierOrderInfo.SupplierOrderInfo.supplierOrderNetTotal">
+            Calculate Order's total
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,122 @@
+﻿@model SNW.Models.Customer
+
+@{
+    ViewBag.Title = "Create New Member";
+}
+
+<h2>Create new Member</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <span class="control-label col-md-2"><strong>Contact Details</strong></span>
+            <div class="col-md-10"><hr /></div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Name</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerForename) @Html.EditorFor(model => model.customerSurname)
+                @Html.ValidationMessageFor(model => model.customerForename)
+                @Html.ValidationMessageFor(model => model.customerSurname)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Phone</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerPhone)
+                @Html.ValidationMessageFor(model => model.customerPhone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Email</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerEmail)
+                @Html.ValidationMessageFor(model => model.customerEmail)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Address</span>
+            <div class="col-md-10"><hr /></div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">House No, street</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerAddressHouseNo) @Html.EditorFor(model => model.customerAddressStreet1)
+                @Html.ValidationMessageFor(model => model.customerAddressHouseNo)
+                @Html.ValidationMessageFor(model => model.customerAddressStreet1)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Town, county</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerAddressTown), @Html.EditorFor(model => model.customerAddressCounty)
+                @Html.ValidationMessageFor(model => model.customerAddressTown)
+                @Html.ValidationMessageFor(model => model.customerAddressCounty)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Country, postcode</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerAddressCountry), @Html.EditorFor(model => model.customerAddressPostCode)
+                @Html.ValidationMessageFor(model => model.customerAddressCountry)
+                @Html.ValidationMessageFor(model => model.customerAddressPostCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2"><strong>User Details</strong></span>
+            <div class="col-md-10"><hr /></div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Role</span>
+            <div class="col-md-10">
+                @Html.DropDownList("customerRoleID")
+                @Html.ValidationMessageFor(model => model.customerRoleID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Username</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerUsername)
+                @Html.ValidationMessageFor(model => model.customerUsername)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">Password</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.customerPassword)
+                @Html.ValidationMessageFor(model => model.customerPassword)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

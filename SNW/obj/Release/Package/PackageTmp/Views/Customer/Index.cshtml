@@ -1,0 +1,59 @@
+﻿@model IEnumerable <SNW.Models.Customer>
+
+@using SNW.App_Code
+@{
+    ViewBag.Title = "Members";
+}
+
+<h2>Members</h2>
+
+<p>
+    @Html.ActionLink("Create New Member", "Create").IfRole(User.IsInRole("Administrator")) 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerForename) @Html.DisplayFor(modelItem => item.customerSurname)
+        </td>
+        <td>
+            <a target="_blank" href="https://maps.google.com/maps?q=@Html.DisplayFor(modelItem => item.customerAddressHouseNo)+@Html.DisplayFor(modelItem => item.customerAddressStreet1),+@Html.DisplayFor(modelItem => item.customerAddressTown),+@Html.DisplayFor(modelItem => item.customerAddressPostCode)&ie=UTF-8">
+            @Html.DisplayFor(modelItem => item.customerAddressHouseNo) @Html.DisplayFor(modelItem => item.customerAddressStreet1), @Html.DisplayFor(modelItem => item.customerAddressTown), @Html.DisplayFor(modelItem => item.customerAddressPostCode)</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customerPhone)
+        </td>
+        <td>
+            <a href="mailto:@Html.DisplayFor(modelItem => item.customerEmail)">@Html.DisplayFor(modelItem => item.customerEmail)</a>
+        </td>
+        <td>
+            @Html.ActionLink("Edit |", "Edit", new { id = item.customerID } ).IfRole(User.IsInRole("Administrator")) 
+            @Html.ActionLink("Details", "Details", new { id=item.customerID } )
+            @Html.ActionLink(" | Delete", "Delete", new { id = item.customerID } ).IfRole(User.IsInRole("Administrator"))
+        </td>
+    </tr>
+}
+
+</table>

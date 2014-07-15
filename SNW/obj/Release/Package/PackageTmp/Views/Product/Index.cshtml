@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SNW.Models.Product>
+
+@{
+    ViewBag.Title = "Full Product List";
+}
+
+<h2>Full Product List</h2>
+
+<p>
+    @Html.ActionLink("Create New Product", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Category
+        </th>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Organic Status
+        </th>
+        <th>
+            Origin
+        </th>
+        <th>
+            WHS Quantity
+        </th>
+        <th>
+            WHS Price
+        </th>
+        <th>
+            SNW Price
+        </th>
+        <th>
+            Product Last Changed
+        </th>
+        <th>
+            Price Last Changed
+        </th>
+        <th>
+            Approval
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductCategory.productCategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productOrganicStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productOrigin)
+        </td>
+        <td>
+            @String.Format("{0:f1}", Html.DisplayFor(modelItem => item.productWHSQty))@Html.DisplayFor(modelItem => item.productWHSsize)
+        </td>
+        <td>
+            @String.Format("{0:c}", Html.DisplayFor(modelItem => item.productWHSPrice))
+        </td>
+        <td>
+            @String.Format("{0:c}", Html.DisplayFor(modelItem => item.productSNWPrice))
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productDateLastChanged)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.productPriceLastChanged)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductApproval.productApprovalName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.productID }) <br />
+            @Html.ActionLink("Details", "Details", new { id=item.productID }) <br />
+            @Html.ActionLink("Delete", "Delete", new { id=item.productID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,115 @@
+﻿@model SNW.Models.Product
+
+@{
+    ViewBag.Title = "Add New Product";
+}
+
+<h2>Add new Product</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productID, "ID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productID)
+                @Html.ValidationMessageFor(model => model.productID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productCategoryID, "Category", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("productCategoryID", "-- Select Category --")
+                @Html.ValidationMessageFor(model => model.productCategoryID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productApprovalID, "Approval", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("productApprovalID")
+                @Html.ValidationMessageFor(model => model.productApprovalID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productName, "Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productName)
+                @Html.ValidationMessageFor(model => model.productName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productDescription, "Description", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productDescription)
+                @Html.ValidationMessageFor(model => model.productDescription)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productOrganicStatus, "Organic Status", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productOrganicStatus)
+                @Html.ValidationMessageFor(model => model.productOrganicStatus)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productOrigin, "Origin", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productOrigin)
+                @Html.ValidationMessageFor(model => model.productOrigin)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productWHSQty, "WHS Quantity", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productWHSQty)
+                @Html.ValidationMessageFor(model => model.productWHSQty)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productWHSsize, "WHS Size", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productWHSsize)
+                @Html.ValidationMessageFor(model => model.productWHSsize)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productWHSPrice, "WHS Price", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productWHSPrice)
+                @Html.ValidationMessageFor(model => model.productWHSPrice)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.productSNWDivisor, "SNW Divisor", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.productSNWDivisor)
+                @Html.ValidationMessageFor(model => model.productSNWDivisor)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

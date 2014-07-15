@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @*@Styles.Render("~/Content/css")*@
+    <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/Content/Print.css" rel="stylesheet" type="text/css" media="print" />
+    @Scripts.Render("~/bundles/modernizr")
+    @using SNW.App_Code
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Sounds Nice Wholefoods", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Products", "ProductList", "Product")</li>
+                    <li>@Html.ActionLink("Orders", "CustomerOrder", "CustomerOrder")</li>
+                    <li>@Html.ActionLink("Member", "Index", "Customer")</li>
+                    <li>@Html.ActionLink("Co-ordinator's Corner", "AdminArea", "Account").IfRole(User.IsInRole("Administrator"))</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                @* Solution used from http://www.codeproject.com/Articles/482546/Creating-a-custom-user-login-form-with-NET-Csharp *@
+                @if (Request.IsAuthenticated)
+                {
+                   <ul class="nav navbar-nav navbar-right">
+                       <li><a href="mailto:@Html.Encode(User.Identity.Name)">@Html.Encode(User.Identity.Name)</a></li>
+                       <li>@Html.ActionLink("Sign Out", "Logout", "Account")</li>
+                   </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                        <li>@Html.ActionLink("Sign In", "Login", "Account")</li>
+                    </ul>                    
+                }
+                @* TO HERE *@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - The Sounds Nice Wholefoods. <strong>NB:</strong> This website is not production ready and members shouldn't be using their secure passwords in this website.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

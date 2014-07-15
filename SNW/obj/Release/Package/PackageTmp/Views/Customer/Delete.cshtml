@@ -1,0 +1,55 @@
+﻿@model SNW.Models.Customer
+
+@{
+    ViewBag.Title = "Delete Member";
+}
+
+<h2>Delete Member</h2>
+
+<h3>Are you sure you want to delete this Member?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerForename) @Html.DisplayFor(model => model.customerSurname)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerEmail)
+        </dd>
+
+        <dt>
+            Role
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerRole.roleName)
+        </dd>
+
+        <dt>
+            Username
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerUsername)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

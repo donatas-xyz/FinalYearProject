@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SNW.BundleConfig" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\BundleConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.FilterConfig" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\FilterConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.RouteConfig" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Start\RouteConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.MvcApplication" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.AccountController" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAESAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.CustomerController" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CustomerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.CustomerOrderController" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAIAACAAAAAAAAAAQAAAAEAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CustomerOrderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.ErrorController" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAABAAAAAAAAgAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Controllers\ErrorController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.FrequentlyAccessedQueries" Collapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAgAAAAABAAAAAAAAABAgAAAAAAAAAEA=</HashCode>
+      <FileName>Controllers\FAQ.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.HomeController" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.MailController" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\MailController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.ProductCategoryController" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProductCategoryController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.ProductController" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACACARAACACAAAAAQAAAEAAEACEAEAABAAAAA=</HashCode>
+      <FileName>Controllers\ProductController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.SearchController" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Controllers\SearchController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Controllers.SupplierOrderController" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACAQAAAAABQAAAAAAAABABAAEAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SupplierOrderController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Account.AccountLogin">
+    <Position X="7.5" Y="6" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAQAAAEEAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Account\AccountLogin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.CustomerOrderInfo.MemberOrder">
+    <Position X="1.25" Y="7.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAhAACggAACAAEEACIAAABEAAgEAATAigACgCEqg=</HashCode>
+      <FileName>Models\CustomerOrder\CustomerOrderInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.DBModelContainer" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAAAAAAAIIEABAAAIEAEgAAAAAAAQAAAAAAAAQ=</HashCode>
+      <FileName>Models\DBModel.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Customer">
+    <Position X="7.75" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>CACEAYAABAAAAAAEEAAgABECAAIACEAAAAAAAAgAEAA=</HashCode>
+      <FileName>Models\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.CustomerOrder">
+    <Position X="0.5" Y="3.5" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAEAABAACAAAACAEAAAAAIAAAAAAAAAABACAAAAAEgA=</HashCode>
+      <FileName>Models\CustomerOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.CustomerOrderLine" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCABAAAAAAAAAAAEAAAAAABAAQAAAAAACAAAACAKA=</HashCode>
+      <FileName>Models\CustomerOrderLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.CustomerOrderPaymentMethod" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAEAAAAAAAAAAAAEAABAAAAAAAAAA=</HashCode>
+      <FileName>Models\CustomerOrderPaymentMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.OrderState" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\OrderState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Product" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAgAAEAAAAAAAAIBAAAEAgAgACCgQCCgAEAg=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.ProductApproval" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\ProductApproval.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.ProductCategory" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Models\ProductCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Role" Collapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Models\Role.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Supplier" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAgAAAAAAAAAAAAAAFgAAAAwAAAAQAIBAAoAAA=</HashCode>
+      <FileName>Models\Supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.SupplierOrder" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABhAAAAAIAAAkAEAIAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SupplierOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Error.ErrorInformation" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAEAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Error\Error.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Mail.MailInformation" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\Mail\Mail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.ProductInfo.MemberProductList" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAQAAAAAAAAAACAgQCCgAAAA=</HashCode>
+      <FileName>Models\Product\ProductInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.ProductInfo.MemberOrderDetails" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAACAAAACEoA=</HashCode>
+      <FileName>Models\Product\ProductInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.Search.SearchInformation" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Search\Search.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.SupplierOrderInfo.SupplierOrderInfo" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEABBBAAgAAAAAAkAACQAgAAAIwUAACAgABCioAgA=</HashCode>
+      <FileName>Models\SupplierOrder\SupplierOrderInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.SupplierOrderInfo.CoordinatorInfo" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAQAABAAAAAAAEAAgAAEAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SupplierOrder\SupplierOrderInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SNW.Models.SupplierOrderInfo.WholeInformation" Collapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SupplierOrder\SupplierOrderInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

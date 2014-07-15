@@ -1,0 +1,108 @@
+﻿@model SNW.Models.SupplierOrderInfo.WholeInformation
+@{
+    ViewBag.Title = "Supplier Order";
+}
+
+<table class="orderTable">
+    <caption><strong>Supplier Order</strong></caption>
+    <thead>
+        <tr>
+            <th colspan="2">Sounds Nice Wholefoods</th>
+            <th colspan="2">Order No. @Model.SupplierOrderInfo.FirstOrDefault().supplierOrderID | <em>@Model.SupplierOrderInfo.FirstOrDefault().supplierOrderStateName</em></th>
+            <th colspan="3">@DateTime.Now.ToShortDateString()</th>
+        </tr>
+        <tr>
+            <th colspan="2">
+                To: </br>
+                @Model.SupplierOrderInfo.FirstOrDefault().supplierName <br />
+                @Model.SupplierOrderInfo.FirstOrDefault().supplierAddressHouseNo @Model.SupplierOrderInfo.FirstOrDefault().supplierAddressStreet1 <br />
+                @Model.SupplierOrderInfo.FirstOrDefault().supplierAddressTown <br />
+                @Model.SupplierOrderInfo.FirstOrDefault().supplierAddressCounty @Model.SupplierOrderInfo.FirstOrDefault().supplierAddressPostCode
+            </th>
+            @if (Model.SupplierOrderInfo.FirstOrDefault().supplierOrderStateID != 3)
+            {
+                <th colspan="2">
+                    Required Delivery Date: <br />
+                @using (Html.BeginForm("ChangeDate", "SupplierOrder", new { id = @Model.SupplierOrderInfo.FirstOrDefault().supplierOrderID }))
+                {
+                    <span class="longerInputField">@Html.EditorFor(model => Model.SupplierOrderInfo.FirstOrDefault().supplierOrderReqDeliveryDate)</span>
+                    <button type="submit" value="&#x2713;" class="btn btn-default">&#x2713;</button>
+                    @Html.ValidationMessageFor(model => Model.SupplierOrderInfo.FirstOrDefault().supplierOrderReqDeliveryDate)
+                    @Html.HiddenFor(model => Model.SupplierOrderInfo.FirstOrDefault().supplierOrderID)
+                }
+                </th>
+            }
+            else
+            {
+                <th colspan="2">
+                    Required Delivery Date: <br />
+                    @String.Format("{0:d}", Model.SupplierOrderInfo.FirstOrDefault().supplierOrderReqDeliveryDate)
+                </th>
+            }
+            <th colspan="3">
+                Delivery Address:</br>
+                @Model.CoordinatorInfo.FirstOrDefault().customerName <br />
+                @Model.CoordinatorInfo.FirstOrDefault().customerAddressHouseNo @Model.CoordinatorInfo.FirstOrDefault().customerAddressStreet1 <br />
+                @Model.CoordinatorInfo.FirstOrDefault().customerAddressTown <br />
+                @Model.CoordinatorInfo.FirstOrDefault().customerAddressCounty @Model.CoordinatorInfo.FirstOrDefault().customerAddressPostalCode <br />
+            </th>
+        </tr>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Organic</th>
+            <th>Qty</th>
+            <th>Unit Price</th>
+            <th>Qty Ordered</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            @if (Model.SupplierOrderInfo.FirstOrDefault().supplierOrderStateID == 1 || Model.SupplierOrderInfo.FirstOrDefault().supplierOrderStateID == 0)
+            {
+                <td colspan="4">
+                    @using (Html.BeginForm("ConfirmOrder", "SupplierOrder", new { id = @Model.SupplierOrderInfo.FirstOrDefault().supplierOrderID }))
+                    {
+                        <button type="submit" value="Confirm Order" class="btn btn-default">Confirm Order</button>
+                    }
+                </td>
+            }
+            else if (Model.SupplierOrderInfo.FirstOrDefault().supplierOrderStateID == 2)
+            {
+                <td colspan="4">
+                    @using (Html.BeginForm("FulfilOrder", "SupplierOrder", new { id = @Model.SupplierOrderInfo.FirstOrDefault().supplierOrderID }))
+                    {
+                        <button type="submit" value="Order Fulfilled" class="btn btn-default">Order Fulfilled</button>
+                        <button type="submit" value="Print Order" onclick="window.print()" class="btn btn-default">Print Order</button>
+                    }
+                </td>
+            }
+            else
+            {
+                <td colspan="4">
+                        <button type="submit" value="Print Order" onclick="window.print()" class="btn btn-default">Print Order</button>
+                </td>
+            }
+            <td colspan="2"><strong>Order Total:</strong></td>
+            <td>@String.Format("{0:c}", Model.SupplierOrderInfo.FirstOrDefault().supplierOrderNetTotal)</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @*@foreach (var SupplierOrderLines in Model)
+        {*@
+            @for (int i = 0; i < Model.SupplierOrderInfo.Count(); i++)
+            {
+            <tr>
+                <td>@Model.SupplierOrderInfo[i].productID</td>
+                <td>@Model.SupplierOrderInfo[i].productName</td>
+                <td>@Model.SupplierOrderInfo[i].productOrganicStatus</td>
+                <td>@String.Format("{0:f0}", Model.SupplierOrderInfo[i].productWHSQty)@Model.SupplierOrderInfo[i].productWHSSize</td>
+                <td>@String.Format("{0:c}", Model.SupplierOrderInfo[i].productWHSPrice)</td>
+                <td>@String.Format("{0:f1}", Model.SupplierOrderInfo[i].qtyOrdered)</td>
+                <td>@String.Format("{0:c}", Model.SupplierOrderInfo[i].supplierOrderTotal)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,68 @@
+﻿@model SNW.Models.Customer
+
+@{
+    ViewBag.Title = "Customer Details";
+}
+
+<h2>Customer Details</h2>
+
+<div>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerForename) @Html.DisplayFor(model => model.customerSurname)
+        </dd>
+
+        <dt>
+            Phone
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerPhone)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            <a href="mailto:@Html.DisplayFor(model => model.customerEmail)">@Html.DisplayFor(model => model.customerEmail)</a>
+        </dd>
+
+        <dt>
+            Address
+        </dt>
+
+        <dd>
+            @* Address links to Google Maps *@
+            <a target="_blank" href="https://maps.google.com/maps?q=@Html.DisplayFor(model => model.customerAddressHouseNo)+@Html.DisplayFor(model => model.customerAddressStreet1),+@Html.DisplayFor(model => model.customerAddressTown),+@Html.DisplayFor(model => model.customerAddressPostCode)&ie=UTF-8">
+                @Html.DisplayFor(model => model.customerAddressHouseNo) @Html.DisplayFor(model => model.customerAddressStreet1), @Html.DisplayFor(model => model.customerAddressTown), @Html.DisplayFor(model => model.customerAddressPostCode)
+            </a> 
+        </dd>
+
+        <dt>
+            Role
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerRole.roleName)
+        </dd>
+
+        <dt>
+            Username
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customerUsername)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.customerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

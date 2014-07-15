@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Co-ordintor's Corner";
+}
+
+<h2>Co-ordinator's Corner</h2>
+
+<p>Welcome, @User.Identity.Name!</p>
+
+<p>You can access all available pages from this page.</p>
+
+<ul>
+    <li>
+        <strong>@Html.ActionLink("Products", "ProductList", "Product")</strong>
+        <ul>
+            <li>@Html.ActionLink("Product List", "Index", "Product")</li>
+            <li>@Html.ActionLink("Create New Product", "Create", "Product")</li>
+        </ul>
+    </li>
+    <li>
+        <strong>@Html.ActionLink("Product Categories", "Index", "ProductCategory")</strong>
+        <ul>
+            <li>@Html.ActionLink("Create New Product Category", "Create", "ProductCategory")</li>
+        </ul>
+        <hr />
+    </li>
+    <li>
+        <strong>@Html.ActionLink("Supplier Orders", "Index", "SupplierOrder")</strong>
+        <ul>
+            <li>@Html.ActionLink("Pending Supplier Order", "SupplierOrder", "SupplierOrder")</li>
+        </ul>
+    </li>
+    <li>
+        <strong>@Html.ActionLink("Customer Orders", "Index", "CustomerOrder")</strong>
+        <ul>
+            <li>@Html.ActionLink("Pending Customer Order", "CustomerOrder", "CustomerOrder")</li>
+        </ul>
+        <hr />
+    </li>
+    <li>
+        <strong>@Html.ActionLink("Members", "Index", "Customer")</strong>
+        <ul>
+            <li>@Html.ActionLink("Create New Member", "Create", "Customer")</li>
+        </ul>
+    </li>
+</ul>

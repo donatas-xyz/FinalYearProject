@@ -1,0 +1,19 @@
+﻿@model SNW.Models.Error.ErrorInformation
+
+@{
+    ViewBag.Title = "No Pending Orders found.";
+}
+
+<h2>No Pending Orders found</h2>
+
+<p>
+    There are no <em>Pending</em> <strong>@Model.entity</strong> Order(s) available or Products in <em>Pending</em> Order(s).
+</p> 
+
+<p>
+    @using (Html.BeginForm("ProductList", "Product"))
+    {
+        <button type="submit" class="btn btn-default">Add Product(s) to Your Order</button>
+    }  
+</p>
+

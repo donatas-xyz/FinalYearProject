@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SNW.Models.SupplierOrderInfo.SupplierOrderInfo>
+
+@{
+    ViewBag.Title = "Supplier Orders";
+}
+
+<h2>Supplier Orders</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Order ID
+        </th>
+        <th>
+            Order State
+        </th>
+        <th>
+            Order Date
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var SupplierOrder in Model) {
+    <tr>
+        <td>
+            @SupplierOrder.supplierOrderID
+        </td>
+        <td>
+            @SupplierOrder.supplierOrderStateName
+        </td>
+        <td>
+            @SupplierOrder.supplierOrderDate
+        </td>
+        <td>
+            @Html.ActionLink("Details", "SupplierOrder", new { id = @SupplierOrder.supplierOrderID, state = @SupplierOrder.supplierOrderStateID })
+        </td>
+    </tr>
+}
+
+</table>

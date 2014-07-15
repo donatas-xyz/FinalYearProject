@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBModelContainer">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="productCategoryID" ColumnName="productCategoryID" />
+          <ScalarProperty Name="productApprovalID" ColumnName="productApprovalID" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="productDescription" ColumnName="productDescription" />
+          <ScalarProperty Name="productOrganicStatus" ColumnName="productOrganicStatus" />
+          <ScalarProperty Name="productOrigin" ColumnName="productOrigin" />
+          <ScalarProperty Name="productWHSQty" ColumnName="productWHSQty" />
+          <ScalarProperty Name="productWHSsize" ColumnName="productWHSsize" />
+          <ScalarProperty Name="productWHSPrice" ColumnName="productWHSPrice" />
+          <ScalarProperty Name="productSNWDivisor" ColumnName="productSNWDivisor" />
+          <ScalarProperty Name="productSNWPrice" ColumnName="productSNWPrice" />
+          <ScalarProperty Name="productDateLastChanged" ColumnName="productDateLastChanged" />
+          <ScalarProperty Name="productPriceLastChanged" ColumnName="productPriceLastChanged" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.ProductCategory)">
+        <MappingFragment StoreEntitySet="ProductCategories">
+          <ScalarProperty Name="productCategoryID" ColumnName="productCategoryID" />
+          <ScalarProperty Name="productCategoryName" ColumnName="productCategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductApprovals">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.ProductApproval)">
+        <MappingFragment StoreEntitySet="ProductApprovals">
+          <ScalarProperty Name="productApprovalID" ColumnName="productApprovalID" />
+          <ScalarProperty Name="productApprovalName" ColumnName="productApprovalName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupplierOrders">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.SupplierOrder)">
+        <MappingFragment StoreEntitySet="SupplierOrders">
+          <ScalarProperty Name="supplierOrderID" ColumnName="supplierOrderID" />
+          <ScalarProperty Name="supplierOrderStateID" ColumnName="supplierOrderStateID" />
+          <ScalarProperty Name="supplierID" ColumnName="supplierID" />
+          <ScalarProperty Name="supplierOrderDeadline" ColumnName="supplierOrderDeadline" />
+          <ScalarProperty Name="supplierOrderDate" ColumnName="supplierOrderDate" />
+          <ScalarProperty Name="supplierOrderReqDeliveryDate" ColumnName="supplierOrderReqDeliveryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerOrders">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.CustomerOrder)">
+        <MappingFragment StoreEntitySet="CustomerOrders">
+          <ScalarProperty Name="customerOrderID" ColumnName="customerOrderID" />
+          <ScalarProperty Name="customerOrderStateID" ColumnName="customerOrderStateID" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="customerOrderPaymentMethodID" ColumnName="customerOrderPaymentMethodID" />
+          <ScalarProperty Name="customerOrderDate" ColumnName="customerOrderDate" />
+          <ScalarProperty Name="customerOrderAdvancePayment" ColumnName="customerOrderAdvancePayment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStates">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.OrderState)">
+        <MappingFragment StoreEntitySet="OrderStates">
+          <ScalarProperty Name="orderStateID" ColumnName="orderStateID" />
+          <ScalarProperty Name="orderStateName" ColumnName="orderStateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerOrderPaymentMethods">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.CustomerOrderPaymentMethod)">
+        <MappingFragment StoreEntitySet="CustomerOrderPaymentMethods">
+          <ScalarProperty Name="customerOrderPaymentMethodID" ColumnName="customerOrderPaymentMethodID" />
+          <ScalarProperty Name="customerOrderPaymentMethodName" ColumnName="customerOrderPaymentMethodName" />
+          <ScalarProperty Name="customerOrderPaymentMethodDescription" ColumnName="customerOrderPaymentMethodDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerOrderLines">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.CustomerOrderLine)">
+        <MappingFragment StoreEntitySet="CustomerOrderLines">
+          <ScalarProperty Name="customerOrderLineID" ColumnName="customerOrderLineID" />
+          <ScalarProperty Name="customerOrderID" ColumnName="customerOrderID" />
+          <ScalarProperty Name="supplierOrderID" ColumnName="supplierOrderID" />
+          <ScalarProperty Name="productID" ColumnName="productID" />
+          <ScalarProperty Name="customerOrderUnitPrice" ColumnName="customerOrderUnitPrice" />
+          <ScalarProperty Name="customerOrderQtyMin" ColumnName="customerOrderQtyMin" />
+          <ScalarProperty Name="customerOrderQtyMax" ColumnName="customerOrderQtyMax" />
+          <ScalarProperty Name="customerOrderQtyActual" ColumnName="customerOrderQtyActual" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Supplier)">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="supplierID" ColumnName="supplierID" />
+          <ScalarProperty Name="supplierName" ColumnName="supplierName" />
+          <ScalarProperty Name="supplierPhone" ColumnName="supplierPhone" />
+          <ScalarProperty Name="supplierEmail" ColumnName="supplierEmail" />
+          <ScalarProperty Name="supplierAddressHouseNo" ColumnName="supplierAddressHouseNo" />
+          <ScalarProperty Name="supplierAddressStreet1" ColumnName="supplierAddressStreet1" />
+          <ScalarProperty Name="supplierAddressStreet2" ColumnName="supplierAddressStreet2" />
+          <ScalarProperty Name="supplierAddressTown" ColumnName="supplierAddressTown" />
+          <ScalarProperty Name="supplierAddressCounty" ColumnName="supplierAddressCounty" />
+          <ScalarProperty Name="supplierAddressPostCode" ColumnName="supplierAddressPostCode" />
+          <ScalarProperty Name="supplierAddressCountry" ColumnName="supplierAddressCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="customerRoleID" ColumnName="customerRoleID" />
+          <ScalarProperty Name="customerForename" ColumnName="customerForename" />
+          <ScalarProperty Name="customerSurname" ColumnName="customerSurname" />
+          <ScalarProperty Name="customerPhone" ColumnName="customerPhone" />
+          <ScalarProperty Name="customerEmail" ColumnName="customerEmail" />
+          <ScalarProperty Name="customerUsername" ColumnName="customerUsername" />
+          <ScalarProperty Name="customerPassword" ColumnName="customerPassword" />
+          <ScalarProperty Name="customerAddressHouseNo" ColumnName="customerAddressHouseNo" />
+          <ScalarProperty Name="customerAddressStreet1" ColumnName="customerAddressStreet1" />
+          <ScalarProperty Name="customerAddressStreet2" ColumnName="customerAddressStreet2" />
+          <ScalarProperty Name="customerAddressTown" ColumnName="customerAddressTown" />
+          <ScalarProperty Name="customerAddressCounty" ColumnName="customerAddressCounty" />
+          <ScalarProperty Name="customerAddressPostCode" ColumnName="customerAddressPostCode" />
+          <ScalarProperty Name="customerAddressCountry" ColumnName="customerAddressCountry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(DBModel.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="roleDescription" ColumnName="roleDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

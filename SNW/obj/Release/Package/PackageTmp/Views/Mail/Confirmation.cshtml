@@ -1,0 +1,16 @@
+﻿@model SNW.Models.Mail.MailInformation
+
+@{
+    ViewBag.Title = "Message has been sent";
+}
+
+<h2>Message sent</h2>
+
+<p>
+    Thank You! Your message has been sent!
+</p>
+<hr />
+<p>
+    Subject: @Model.subject<br />
+    Message: <em>@Model.message</em>
+</p>

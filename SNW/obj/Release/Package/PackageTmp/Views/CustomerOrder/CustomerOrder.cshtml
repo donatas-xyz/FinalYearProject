@@ -1,0 +1,153 @@
+﻿@model IEnumerable<SNW.Models.CustomerOrderInfo.MemberOrder>
+
+@{
+    ViewBag.Title = "Customer Order";
+}
+
+<table class="orderTable">
+    <caption><strong>Member Order</strong></caption>
+    <thead>
+        <tr>
+            <th colspan="5">@Model.FirstOrDefault().customerName</th>
+            <th colspan="4">
+                Order No. @Model.FirstOrDefault().customerOrderID
+            </th>
+            <th colspan="3">Date: @Model.FirstOrDefault().customerOrderDate.ToShortDateString()</th>
+        </tr>
+        <tr>
+            <th colspan="7">Product Details</th>
+            <th colspan="5">Order Quantities</th>
+        </tr>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Organic</th>
+            <th>WHS Size</th>
+            <th>WHS Price</th>
+            <th>SNW Size</th>
+            <th>SNW Price</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Actual</th>
+            <th>Total</th>
+            <th>Save/Remove</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="9" rowspan="3">
+                Payment method  |   @Model.FirstOrDefault().customerOrderPaymentMethod <br />
+                Order state     |   @Model.FirstOrDefault().orderStateName<br />
+                <button type="submit" value="Print Order" onclick="window.print()" class="btn btn-default">Print Order</button>
+            </td>
+            <td colspan="2">Actual Cost</td>
+            <td>@String.Format("{0:c}", @Model.FirstOrDefault().customerOrderNetTotal)</td>
+        </tr>
+        <tr>
+            <td colspan="2">Advance Payment</td>
+            @if (User.Identity.Name == "administrator")
+            {
+                <td>
+                @using (Html.BeginForm("ChangePayment", "CustomerOrder", new { id = @Model.FirstOrDefault().customerOrderID }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => @Model.FirstOrDefault().customerOrderID)
+                    @Html.HiddenFor(model => @Model.FirstOrDefault().customerOrderStateID)
+                    @Html.HiddenFor(model => @Model.FirstOrDefault().customerID)
+                    @Html.HiddenFor(model => @Model.FirstOrDefault().customerOrderPaymentMethodID)
+                    @Html.HiddenFor(model => @Model.FirstOrDefault().customerOrderDate)
+                    @Html.EditorFor(model => Model.FirstOrDefault().customerOrderAdvancePayment)
+                    @Html.ValidationMessageFor(model => Model.FirstOrDefault().customerOrderAdvancePayment)
+                    <input type="submit" value="&#10004;" class="btn btn-default" />
+                }
+                </td>
+            }
+            else
+            {
+                <td>@String.Format("{0:c}", Model.FirstOrDefault().customerOrderAdvancePayment)</td>
+            }
+        </tr>
+        <tr>
+            <td colspan="2">Balance</td>
+            <td>@String.Format("{0:c}", Model.FirstOrDefault().customerOrderBalance)</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var MemberOrder in Model)
+        {
+        <tr>
+        @using (Html.BeginForm("AmendOrderLine", "CustomerOrder", new { id = MemberOrder.customerOrderLineID, oID = MemberOrder.customerOrderID }))
+        {
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => MemberOrder.customerOrderLineID)
+            @Html.HiddenFor(model => MemberOrder.customerOrderID)
+            @Html.HiddenFor(model => MemberOrder.customerOrderUnitPrice)
+            <td>
+                @MemberOrder.productID
+                @Html.HiddenFor(model => MemberOrder.productID)
+            </td>
+            <td>@MemberOrder.productName</td>
+            <td>@MemberOrder.productOrganicStatus</td>
+            <td>@String.Format("{0:f0}", MemberOrder.productWHSQty)@MemberOrder.productWHSSize</td>
+            <td>@String.Format("{0:c}", MemberOrder.productWHSPrice)</td>
+            <td>@String.Format("{0:f0}", MemberOrder.productSNWQty)@MemberOrder.productWHSSize</td>
+            if (Model.FirstOrDefault().customerOrderStateID == 1)
+            {
+                <td>@String.Format("{0:c}", MemberOrder.productSNWPrice)</td>
+            }
+            else 
+            {
+                <td>@String.Format("{0:c}", MemberOrder.customerOrderUnitPrice)</td>
+            }
+            if ((User.Identity.Name == "administrator" && MemberOrder.customerOrderStateID != 3) || (User.Identity.Name != "administrator" && MemberOrder.customerOrderStateID == 1))
+            {             
+                <td>
+                    @Html.EditorFor(model => MemberOrder.customerOrderQtyMin)
+                    @Html.ValidationMessageFor(model => MemberOrder.customerOrderQtyMin)
+                </td>
+                <td>
+                    @Html.EditorFor(model => MemberOrder.customerOrderQtyMax)
+                    @Html.ValidationMessageFor(model => MemberOrder.customerOrderQtyMax)
+                </td>
+                if (User.Identity.Name == "administrator")
+                {
+                    <td>
+                        @Html.EditorFor(model => MemberOrder.customerOrderQtyActual)
+                        @Html.ValidationMessageFor(model => MemberOrder.customerOrderQtyActual)
+                    </td>
+                }
+                else 
+                {
+                    <td>@MemberOrder.customerOrderQtyActual</td> 
+                }
+            }
+            else
+            {
+                <td>@MemberOrder.customerOrderQtyMin</td>
+                <td>@MemberOrder.customerOrderQtyMax</td>
+                <td>@MemberOrder.customerOrderQtyActual</td>
+            }
+            if (Model.FirstOrDefault().customerOrderStateID == 1)
+            {
+                <td>@String.Format("{0:c}", MemberOrder.customerOrderTotal)</td>            
+            } 
+            else
+            {
+                <td>@String.Format("{0:c}", MemberOrder.customerOrderActualTotal)</td>
+            }
+            if ((User.Identity.Name == "administrator" && MemberOrder.customerOrderStateID != 3) || (User.Identity.Name != "administrator" && MemberOrder.customerOrderStateID == 1))
+            {
+            <td>  
+                <input type="submit" name="SaveChanges" value="&#x2713;" class="btn btn-default" />
+                <input type="submit" name="RemoveLine" value="&#x2717;" class="btn btn-default" />
+            </td>
+            }
+            else 
+            {
+                <td></td> 
+            }
+        }
+        </tr>
+        }
+    </tbody>
+</table>

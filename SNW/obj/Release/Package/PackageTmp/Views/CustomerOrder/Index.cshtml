@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SNW.Models.CustomerOrderInfo.MemberOrder>
+
+@{
+    ViewBag.Title = "Customer Orders";
+}
+
+<h2>Customer Orders</h2>
+
+<table class="table">
+    <tr>
+    <th>
+        Order ID
+    </th>
+    <th>
+        Order State
+    </th>
+    <th>
+        Member Name
+    </th>
+    <th>
+        Order Date
+    </th>
+    <th></th>
+</tr>
+
+@foreach (var MemberOrder in Model)
+{
+    <tr>
+        <td>
+            @MemberOrder.customerOrderID
+        </td>
+        <td>
+            @MemberOrder.orderStateName
+        </td>
+        <td>
+            @MemberOrder.customerName
+        </td>
+        <td>
+            @MemberOrder.customerOrderDate
+        </td>
+        <td>
+            @Html.ActionLink("Details", "CustomerOrder", new { id = @MemberOrder.customerOrderID, state = @MemberOrder.customerOrderStateID, user = @MemberOrder.customerID })
+        </td>
+    </tr>
+}
+
+</table>

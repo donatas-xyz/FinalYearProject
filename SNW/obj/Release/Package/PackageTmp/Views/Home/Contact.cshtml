@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Contact Co-ordinator";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+@* We could use schema.org markup in our e-commerce web application
+    if it weren't protected by login system
+    Markup can be tested here: http://www.google.com/webmasters/tools/richsnippets*@
+
+<div itemscope itemtype="http://schema.org/Person">
+    <span itemprop="name"><strong>Heinz Siefreed</strong></span><br />
+    <address>
+        <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress">
+                23 Bloomfield Road
+            </span><br />
+            <span itemprop="addressLocality">Brighton</span>, 
+            <span itemprop="addressRegion">East Sussex</span><br />
+            <span itemprop="postalCode">BN1 3BR</span><br />
+        </div>
+        <span itemprop="telephone">0123456789</span><br />
+        <a href="mailto:heinz@email.com" itemprop="email">
+            heinz@email.com
+        </a>
+    </address>
+</div>

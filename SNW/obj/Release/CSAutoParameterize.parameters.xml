@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DBModelContainer-Web.config Connection String" description="DBModelContainer Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.DBModel.csdl|res://*/Models.DBModel.ssdl|res://*/Models.DBModel.msl;provider=MySql.Data.MySqlClient;provider connection string=&quot;server=fyp.wpapps.mobi;user id=c1snw;persistsecurityinfo=True;Convert Zero Datetime=True;password=YjnPyj861LWFoR;database=c1snw&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Donatas\\Source\\Repos\\SoundsNiceWholefoods\\SNW\\SNW\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBModelContainer']/@connectionString" />
+  </parameter>
+</parameters>

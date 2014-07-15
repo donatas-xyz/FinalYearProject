@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SNW.Models.ProductInfo.MemberProductList>
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<table class="orderTable">
+    <caption>Product List</caption>
+    <thead>
+        <tr>
+            <th>@Html.ActionLink("Group", "../ProductCategory/Index")</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>OG.</th>
+            <th>Origin</th>
+            <th>WHS Qty</th>
+            <th>WHS Price</th>
+            <th colspan="2">@Html.Partial("_Search", "Search")</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="9">
+                <a href="http://www.infinityfoodswholesale.co.uk/catalogue/" title="Infinity Foods catalogue" target="_blank">
+                    Download an electronic copy of Infinity Foods catalogue
+                </a>
+            </td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var MemberProductList in Model)
+        {
+            <tr>
+                <td>@MemberProductList.productCategoryName</td>
+                <td>@MemberProductList.productID</td>
+                <td>@MemberProductList.productName</td>
+                <td>@MemberProductList.productOrganicStatus</td>
+                <td>@MemberProductList.productOrigin</td>
+                <td>@String.Format("{0:f1}", MemberProductList.productWHSQty)@MemberProductList.productWHSsize</td>
+                <td>@String.Format("{0:c}", MemberProductList.productWHSPrice)</td>
+                <td>
+                    @using (Html.BeginForm("AddToOrder", "Product", new { id = MemberProductList.productID }))
+                    {
+                        <button type="submit" value="Add to Order" class="btn btn-default">Add to Order</button>
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("ReportPrice", "Product", new { id = MemberProductList.productID }))
+                    {
+                        <button type="submit" value="Report Price" class="btn btn-default">Report Price</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

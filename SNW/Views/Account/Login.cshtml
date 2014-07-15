@@ -1,0 +1,34 @@
+﻿@model SNW.Models.Account.AccountLogin
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "Login failed. Check your login details.");
+    <div>
+        <fieldset>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.customerUsername)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.customerUsername)
+                @Html.ValidationMessageFor(u => u.customerUsername)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(u => u.customerPassword)
+            </div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.customerPassword)
+                @Html.ValidationMessageFor(u => u.customerPassword)
+            </div>
+            <div class="editor-label">
+                @Html.CheckBoxFor(u => u.rememberMe)
+                @Html.LabelFor(u => u.rememberMe)
+            </div>
+            <input type="submit" class="btn btn-default" value="Log In" />
+        </fieldset>
+    </div>
+}

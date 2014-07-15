@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SNW.Models.SupplierOrderInfo.SupplierOrderInfo>
+
+@{
+    ViewBag.Title = "Supplier Order Details";
+}
+
+<table border="1">
+    <caption>Supplier Order Details</caption>
+    <thead>
+        <tr>
+            <th colspan="2">Sounds Nice Wholefoods</th>
+            <th colspan="2">Order No. @Model.FirstOrDefault().supplierOrderID</th>
+            <th colspan="3">@DateTime.Now</th>
+        </tr>
+        <tr>
+            <th colspan="2">
+                To: </br>
+                @Model.FirstOrDefault().supplierName <br />
+                @Model.FirstOrDefault().supplierAddressHouseNo @Model.FirstOrDefault().supplierAddressStreet1 <br />
+                @Model.FirstOrDefault().supplierAddressTown <br />
+                @Model.FirstOrDefault().supplierAddressCounty @Model.FirstOrDefault().supplierAddressPostCode
+            </th>
+            <th colspan="2">Required Delivery Date: @Model.FirstOrDefault().supplierOrderReqDeliveryDate</th>
+            <th colspan="3">
+                Delivery Address:</br>
+                @*@Model.FirstOrDefault().coordinatorAddressHouseNo*@
+            </th>
+        </tr>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Organic</th>
+            <th>Qty</th>
+            <th>Unit Price</th>
+            <th>Qty Ordered</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                @using (Html.BeginForm("ConfirmOrder", "SupplierOrder", new { id = @Model.FirstOrDefault().supplierOrderID }))
+                {
+                    <input type="submit" value="Confirm Order" />
+                }
+                @using (Html.BeginForm("FulfillOrder", "SupplierOrder", new { id = @Model.FirstOrDefault().supplierOrderID }))
+                {
+                    <input type="submit" value="Order Fulfilled" />
+                }
+                @using (Html.BeginForm("PrintOrder", "SupplierOrder", new { id = @Model.FirstOrDefault().supplierOrderID }))
+                {
+                    <input type="submit" value="Print Order" />
+                }
+            </td>
+            <td colspan="2"><strong>Order Total:</strong></td>
+            <td>@String.Format("{0:c}", Model.FirstOrDefault().supplierOrderNetTotal)</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var SupplierOrderLines in Model)
+        {
+            <tr>
+                <td>@SupplierOrderLines.productID</td>
+                <td>@SupplierOrderLines.productName</td>
+                <td>@SupplierOrderLines.productOrganicStatus</td>
+                <td>@SupplierOrderLines.productWHSQty@SupplierOrderLines.productWHSSize</td>
+                <td>@String.Format("{0:c}", SupplierOrderLines.productWHSPrice)</td>
+                <td>@SupplierOrderLines.qtyOrdered</td>
+                <td>@String.Format("{0:c}", SupplierOrderLines.supplierOrderTotal)</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e951d753982d4a74a3278d2cae2a8812" Name="ERD" ZoomLevel="89" DisplayType="true" >
+        <EntityTypeShape EntityType="DBModel.Product" Width="2.625" PointX="3.25" PointY="0.5" FillColor="Green" />
+        <EntityTypeShape EntityType="DBModel.ProductCategory" Width="2.25" PointX="0.5" PointY="0.5" FillColor="Green" />
+        <EntityTypeShape EntityType="DBModel.ProductApproval" Width="2.25" PointX="0.5" PointY="2.25" FillColor="Green" />
+        <EntityTypeShape EntityType="DBModel.SupplierOrder" Width="2.875" PointX="3.375" PointY="5" FillColor="Teal" />
+        <EntityTypeShape EntityType="DBModel.CustomerOrder" Width="3" PointX="12.375" PointY="0.5" FillColor="Maroon" />
+        <EntityTypeShape EntityType="DBModel.OrderState" Width="2.5" PointX="12.875" PointY="4" FillColor="Maroon" />
+        <EntityTypeShape EntityType="DBModel.CustomerOrderPaymentMethod" Width="3.375" PointX="6.375" PointY="0.5" FillColor="Maroon" />
+        <EntityTypeShape EntityType="DBModel.CustomerOrderLine" Width="2.5" PointX="6.5" PointY="2.375" FillColor="Maroon" />
+        <EntityTypeShape EntityType="DBModel.Supplier" Width="2.5" PointX="0.5" PointY="4" FillColor="Teal" />
+        <EntityTypeShape EntityType="DBModel.Customer" Width="2.625" PointX="9.375" PointY="2.625" FillColor="Maroon" />
+        <EntityTypeShape EntityType="DBModel.Role" Width="1.875" PointX="10.125" PointY="0.5" FillColor="Maroon" />
+        <AssociationConnector Association="DBModel.ProductCustomerOrderLine" />
+        <AssociationConnector Association="DBModel.ProductCategoryProduct" />
+        <AssociationConnector Association="DBModel.ProductApprovalProduct" />
+        <AssociationConnector Association="DBModel.SupplierSupplierOrder" />
+        <AssociationConnector Association="DBModel.CustomerOrderCustomerOrderLine" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.CustomerCustomerOrder" />
+        <AssociationConnector Association="DBModel.CustomerOrderStateCustomerOrder" />
+        <AssociationConnector Association="DBModel.CustomerOrderPaymentMethodCustomerOrder" />
+        <AssociationConnector Association="DBModel.CustomerRoleCustomer" />
+        <AssociationConnector Association="DBModel.SupplierOrderOrderState" ManuallyRouted="true" >
+          <ConnectorPoint PointX="4.8125" PointY="5" />
+          <ConnectorPoint PointX="4.8125" PointY="4.8939925130208328" />
+          <ConnectorPoint PointX="6.441479299351184" PointY="4.8939925130208328" />
+          <ConnectorPoint PointX="6.441479299351184" PointY="5.7954863840268516" />
+          <ConnectorPoint PointX="7.666666666666667" PointY="5.7954863840268507" />
+          <ConnectorPoint PointX="7.833333333333333" PointY="5.7954863840268516" />
+          <ConnectorPoint PointX="9.3125" PointY="5.7954863840268516" />
+          <ConnectorPoint PointX="9.3125" PointY="6.9754036458333317" />
+          <ConnectorPoint PointX="12.78125" PointY="6.9754036458333317" />
+          <ConnectorPoint PointX="12.875" PointY="4.9058460030413382" />
+        </AssociationConnector>
+        <AssociationConnector Association="DBModel.SupplierOrderCustomerOrderLine" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

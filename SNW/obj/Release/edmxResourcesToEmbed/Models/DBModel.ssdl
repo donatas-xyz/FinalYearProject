@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DBModelStoreContainer">
+    <EntitySet Name="Products" EntityType="DBModel.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductCategories" EntityType="DBModel.Store.ProductCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProductApprovals" EntityType="DBModel.Store.ProductApprovals" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SupplierOrders" EntityType="DBModel.Store.SupplierOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerOrders" EntityType="DBModel.Store.CustomerOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderStates" EntityType="DBModel.Store.OrderStates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerOrderPaymentMethods" EntityType="DBModel.Store.CustomerOrderPaymentMethods" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerOrderLines" EntityType="DBModel.Store.CustomerOrderLines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Suppliers" EntityType="DBModel.Store.Suppliers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customers" EntityType="DBModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="DBModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ProductCustomerOrderLine" Association="DBModel.Store.ProductCustomerOrderLine">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="CustomerOrderLine" EntitySet="CustomerOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="ProductCategoryProduct" Association="DBModel.Store.ProductCategoryProduct">
+      <End Role="ProductCategory" EntitySet="ProductCategories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="ProductApprovalProduct" Association="DBModel.Store.ProductApprovalProduct">
+      <End Role="ProductApproval" EntitySet="ProductApprovals" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="SupplierSupplierOrder" Association="DBModel.Store.SupplierSupplierOrder">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="SupplierOrder" EntitySet="SupplierOrders" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerOrderCustomerOrderLine" Association="DBModel.Store.CustomerOrderCustomerOrderLine">
+      <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+      <End Role="CustomerOrderLine" EntitySet="CustomerOrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerCustomerOrder" Association="DBModel.Store.CustomerCustomerOrder">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerOrderStateCustomerOrder" Association="DBModel.Store.CustomerOrderStateCustomerOrder">
+      <End Role="CustomerOrderState" EntitySet="OrderStates" />
+      <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerOrderPaymentMethodCustomerOrder" Association="DBModel.Store.CustomerOrderPaymentMethodCustomerOrder">
+      <End Role="CustomerOrderPaymentMethod" EntitySet="CustomerOrderPaymentMethods" />
+      <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerRoleCustomer" Association="DBModel.Store.CustomerRoleCustomer">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="SupplierOrderOrderState" Association="DBModel.Store.SupplierOrderOrderState">
+      <End Role="SupplierOrder" EntitySet="SupplierOrders" />
+      <End Role="OrderState" EntitySet="OrderStates" />
+    </AssociationSet>
+    <AssociationSet Name="SupplierOrderCustomerOrderLine" Association="DBModel.Store.SupplierOrderCustomerOrderLine">
+      <End Role="SupplierOrder" EntitySet="SupplierOrders" />
+      <End Role="CustomerOrderLine" EntitySet="CustomerOrderLines" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="productID" />
+    </Key>
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="productCategoryID" Type="int" Nullable="false" />
+    <Property Name="productApprovalID" Type="int" Nullable="false" DefaultValue="1" />
+    <Property Name="productName" Type="longtext" Nullable="false" />
+    <Property Name="productDescription" Type="longtext" Nullable="true" />
+    <Property Name="productOrganicStatus" Type="longtext" Nullable="false" />
+    <Property Name="productOrigin" Type="char" Nullable="true" MaxLength="Max" />
+    <Property Name="productWHSQty" Type="decimal" Nullable="false" />
+    <Property Name="productWHSsize" Type="longtext" Nullable="false" />
+    <Property Name="productWHSPrice" Type="decimal" Nullable="false" DefaultValue="0" />
+    <Property Name="productSNWDivisor" Type="smallint" Nullable="false" />
+    <Property Name="productSNWPrice" Type="decimal" Nullable="false" DefaultValue="0" />
+    <Property Name="productDateLastChanged" Type="datetime" Nullable="false" />
+    <Property Name="productPriceLastChanged" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategories">
+    <Key>
+      <PropertyRef Name="productCategoryID" />
+    </Key>
+    <Property Name="productCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productCategoryName" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductApprovals">
+    <Key>
+      <PropertyRef Name="productApprovalID" />
+    </Key>
+    <Property Name="productApprovalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" DefaultValue="1" />
+    <Property Name="productApprovalName" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierOrders">
+    <Key>
+      <PropertyRef Name="supplierOrderID" />
+    </Key>
+    <Property Name="supplierOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="supplierOrderStateID" Type="int" Nullable="false" />
+    <Property Name="supplierID" Type="int" Nullable="false" />
+    <Property Name="supplierOrderDeadline" Type="datetime" Nullable="true" />
+    <Property Name="supplierOrderDate" Type="datetime" Nullable="false" />
+    <Property Name="supplierOrderReqDeliveryDate" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CustomerOrders">
+    <Key>
+      <PropertyRef Name="customerOrderID" />
+    </Key>
+    <Property Name="customerOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerOrderStateID" Type="int" Nullable="false" />
+    <Property Name="customerID" Type="int" Nullable="false" />
+    <Property Name="customerOrderPaymentMethodID" Type="int" Nullable="false" />
+    <Property Name="customerOrderDate" Type="datetime" Nullable="false" />
+    <Property Name="customerOrderAdvancePayment" Type="decimal" Nullable="true" />
+  </EntityType>
+  <EntityType Name="OrderStates">
+    <Key>
+      <PropertyRef Name="orderStateID" />
+    </Key>
+    <Property Name="orderStateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderStateName" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerOrderPaymentMethods">
+    <Key>
+      <PropertyRef Name="customerOrderPaymentMethodID" />
+    </Key>
+    <Property Name="customerOrderPaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerOrderPaymentMethodName" Type="longtext" Nullable="false" />
+    <Property Name="customerOrderPaymentMethodDescription" Type="longtext" Nullable="true" />
+  </EntityType>
+  <EntityType Name="CustomerOrderLines">
+    <Key>
+      <PropertyRef Name="customerOrderLineID" />
+      <PropertyRef Name="customerOrderID" />
+    </Key>
+    <Property Name="customerOrderLineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerOrderID" Type="int" Nullable="false" />
+    <Property Name="supplierOrderID" Type="int" Nullable="true" />
+    <Property Name="productID" Type="int" Nullable="false" />
+    <Property Name="customerOrderUnitPrice" Type="decimal" Nullable="true" DefaultValue="0" />
+    <Property Name="customerOrderQtyMin" Type="decimal" Nullable="false" />
+    <Property Name="customerOrderQtyMax" Type="decimal" Nullable="false" />
+    <Property Name="customerOrderQtyActual" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="supplierID" />
+    </Key>
+    <Property Name="supplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="supplierName" Type="longtext" Nullable="false" />
+    <Property Name="supplierPhone" Type="longtext" Nullable="false" />
+    <Property Name="supplierEmail" Type="longtext" Nullable="false" />
+    <Property Name="supplierAddressHouseNo" Type="longtext" Nullable="true" />
+    <Property Name="supplierAddressStreet1" Type="longtext" Nullable="false" />
+    <Property Name="supplierAddressStreet2" Type="longtext" Nullable="true" />
+    <Property Name="supplierAddressTown" Type="longtext" Nullable="false" />
+    <Property Name="supplierAddressCounty" Type="longtext" Nullable="true" />
+    <Property Name="supplierAddressPostCode" Type="longtext" Nullable="true" />
+    <Property Name="supplierAddressCountry" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="customerID" />
+    </Key>
+    <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerRoleID" Type="int" Nullable="false" />
+    <Property Name="customerForename" Type="longtext" Nullable="false" />
+    <Property Name="customerSurname" Type="longtext" Nullable="false" />
+    <Property Name="customerPhone" Type="longtext" Nullable="false" />
+    <Property Name="customerEmail" Type="longtext" Nullable="false" />
+    <Property Name="customerUsername" Type="longtext" Nullable="false" />
+    <Property Name="customerPassword" Type="longtext" Nullable="false" />
+    <Property Name="customerAddressHouseNo" Type="longtext" Nullable="true" />
+    <Property Name="customerAddressStreet1" Type="longtext" Nullable="false" />
+    <Property Name="customerAddressStreet2" Type="longtext" Nullable="true" />
+    <Property Name="customerAddressTown" Type="longtext" Nullable="false" />
+    <Property Name="customerAddressCounty" Type="longtext" Nullable="true" />
+    <Property Name="customerAddressPostCode" Type="longtext" Nullable="true" />
+    <Property Name="customerAddressCountry" Type="longtext" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="roleID" />
+    </Key>
+    <Property Name="roleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roleName" Type="longtext" Nullable="false" />
+    <Property Name="roleDescription" Type="longtext" Nullable="true" />
+  </EntityType>
+  <Association Name="ProductCustomerOrderLine">
+    <End Role="Product" Type="DBModel.Store.Products" Multiplicity="1" />
+    <End Role="CustomerOrderLine" Type="DBModel.Store.CustomerOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="productID" />
+      </Principal>
+      <Dependent Role="CustomerOrderLine">
+        <PropertyRef Name="productID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductCategoryProduct">
+    <End Role="ProductCategory" Type="DBModel.Store.ProductCategories" Multiplicity="1" />
+    <End Role="Product" Type="DBModel.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="productCategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="productCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductApprovalProduct">
+    <End Role="ProductApproval" Type="DBModel.Store.ProductApprovals" Multiplicity="1" />
+    <End Role="Product" Type="DBModel.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductApproval">
+        <PropertyRef Name="productApprovalID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="productApprovalID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplierSupplierOrder">
+    <End Role="Supplier" Type="DBModel.Store.Suppliers" Multiplicity="1" />
+    <End Role="SupplierOrder" Type="DBModel.Store.SupplierOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="supplierID" />
+      </Principal>
+      <Dependent Role="SupplierOrder">
+        <PropertyRef Name="supplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerOrderCustomerOrderLine">
+    <End Role="CustomerOrder" Type="DBModel.Store.CustomerOrders" Multiplicity="1" />
+    <End Role="CustomerOrderLine" Type="DBModel.Store.CustomerOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerOrder">
+        <PropertyRef Name="customerOrderID" />
+      </Principal>
+      <Dependent Role="CustomerOrderLine">
+        <PropertyRef Name="customerOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerCustomerOrder">
+    <End Role="Customer" Type="DBModel.Store.Customers" Multiplicity="1" />
+    <End Role="CustomerOrder" Type="DBModel.Store.CustomerOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customerID" />
+      </Principal>
+      <Dependent Role="CustomerOrder">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerOrderStateCustomerOrder">
+    <End Role="CustomerOrderState" Type="DBModel.Store.OrderStates" Multiplicity="1" />
+    <End Role="CustomerOrder" Type="DBModel.Store.CustomerOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerOrderState">
+        <PropertyRef Name="orderStateID" />
+      </Principal>
+      <Dependent Role="CustomerOrder">
+        <PropertyRef Name="customerOrderStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerOrderPaymentMethodCustomerOrder">
+    <End Role="CustomerOrderPaymentMethod" Type="DBModel.Store.CustomerOrderPaymentMethods" Multiplicity="1" />
+    <End Role="CustomerOrder" Type="DBModel.Store.CustomerOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CustomerOrderPaymentMethod">
+        <PropertyRef Name="customerOrderPaymentMethodID" />
+      </Principal>
+      <Dependent Role="CustomerOrder">
+        <PropertyRef Name="customerOrderPaymentMethodID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerRoleCustomer">
+    <End Role="Role" Type="DBModel.Store.Roles" Multiplicity="1" />
+    <End Role="Customer" Type="DBModel.Store.Customers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="roleID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="customerRoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplierOrderOrderState">
+    <End Role="SupplierOrder" Type="DBModel.Store.SupplierOrders" Multiplicity="*" />
+    <End Role="OrderState" Type="DBModel.Store.OrderStates" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OrderState">
+        <PropertyRef Name="orderStateID" />
+      </Principal>
+      <Dependent Role="SupplierOrder">
+        <PropertyRef Name="supplierOrderStateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplierOrderCustomerOrderLine">
+    <End Role="SupplierOrder" Type="DBModel.Store.SupplierOrders" Multiplicity="0..1" />
+    <End Role="CustomerOrderLine" Type="DBModel.Store.CustomerOrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SupplierOrder">
+        <PropertyRef Name="supplierOrderID" />
+      </Principal>
+      <Dependent Role="CustomerOrderLine">
+        <PropertyRef Name="supplierOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SNW.Models.ProductCategory>
+
+@{
+    ViewBag.Title = "Product Categories";
+}
+
+<h2>Product Categories</h2>
+
+<p>
+    @Html.ActionLink("Create New Category", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.productCategoryName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.productCategoryID }) | 
+            @Html.ActionLink("Delete", "Delete", new { id=item.productCategoryID })
+        </td>
+    </tr>
+}
+
+</table>

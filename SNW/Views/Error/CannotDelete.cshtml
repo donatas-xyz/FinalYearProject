@@ -1,0 +1,27 @@
+﻿@model SNW.Models.Error.ErrorInformation
+
+@{
+    ViewBag.Title = "Record cannot be deleted/updated";
+}
+
+<h2>Record cannot be deleted/updated</h2>
+
+<p>
+    @Model.entity 
+</p>
+<hr />
+<p>
+    Error Code: <strong>@Model.code</strong><br />
+    Error Message (Inner Exeption): <em>@Model.error</em>
+</p>
+<hr />
+<p>
+    Online resources: <a href="https://encrypted.google.com/search?q=@Model.code+@Model.entity" target="_blank">@Model.entity</a>
+</p>
+
+<p>
+    @using (Html.BeginForm("Index", "Product"))
+    {
+        <button type="submit" class="btn btn-default">Back to List of Products</button>
+    }
+</p>
